@@ -136,14 +136,14 @@ const Usuarios: React.FC = () => {
     nivelAcesso: ''
   });
 
-  // Estado para validação do celular
+  // Estado para validação do celular   
   const [isCelularValid, setIsCelularValid] = useState(true);
 // Adicione um comentário como teste
 // Teste de deploy - [data atual]
   const [isCelularValid, setIsCelularValid] = useState(true);
 
   // Função para capturar foto do WhatsApp
-  const handleWhatsAppPhoto = async () => {
+  const handleWhatsAppPhoto = async () => { 
     if (!formData.celular) {
       alert('Por favor, informe o número do celular primeiro.');
       return;
