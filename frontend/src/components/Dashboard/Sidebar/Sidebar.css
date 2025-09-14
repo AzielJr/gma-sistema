@@ -1,0 +1,667 @@
+.sidebar {
+  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 85px; /* ✅ Margem de 5px do header (era 80px) */
+  left: 0;
+  height: calc(100vh - 85px); /* ✅ Altura ajustada para compensar a margem */
+  z-index: 100;
+  transition: width 0.3s ease;
+}
+
+.sidebar.open {
+  width: 160px; /* Largura padrão reduzida */
+  min-width: 160px;
+}
+
+.sidebar.closed {
+  width: 70px;
+  min-width: 70px;
+}
+
+/* Comportamento de hover - expande para tamanho completo */
+.sidebar.open:hover,
+.sidebar.open.hovered {
+  width: 280px; /* Tamanho completo no hover */
+  min-width: 280px;
+}
+
+.sidebar.closed.hovered {
+  width: 280px;
+  min-width: 280px;
+}
+
+/* Garantir que os ícones fiquem centralizados quando fechado */
+.sidebar.closed .menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.sidebar.closed .menu-title,
+.sidebar.closed .menu-arrow {
+  display: none;
+}
+
+/* Mostrar títulos apenas no hover */
+.sidebar.closed.hovered .menu-title,
+.sidebar.closed.hovered .menu-arrow {
+  display: block;
+}
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.menu-item {
+  margin-bottom: 2px;
+}
+
+/* ========== GRUPO PRINCIPAL (pode ficar negrito) ========== */
+.menu-item-header {
+  display: flex;
+  align-items: center;
+  padding: 7px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 3px solid transparent;
+  font-weight: 500; /* Grupo principal pode ter negrito */
+}
+
+/* Ajustar padding dos itens para largura reduzida */
+.sidebar.open .menu-item-header {
+  padding: 8px 10px;
+}
+
+.sidebar.open:hover .menu-item-header,
+.sidebar.open.hovered .menu-item-header {
+  padding: 8px 20px;
+}
+
+.menu-item-header.active {
+  background: rgba(76, 175, 80, 0.2);
+  border-left-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 600; /* Grupo ativo pode ter mais negrito */
+}
+
+/* Novo estilo para grupo selecionado */
+.menu-item-header.selected {
+  background: rgba(76, 175, 80, 0.1);
+  border-left-color: rgba(76, 175, 80, 0.5);
+  color: rgba(76, 175, 80, 0.8);
+}
+
+/* DESTAQUE PARA GRUPOS EXPANDIDOS - APENAS LEVEL-0 */
+.level-0 .menu-item-header.expanded {
+  background: rgba(230, 240, 255, 0.8) !important;
+  border-left-color: rgba(52, 152, 219, 0.6) !important;
+  color: rgba(52, 152, 219, 0.9) !important;
+  font-weight: 600 !important;
+  box-shadow: inset 0 1px 3px rgba(52, 152, 219, 0.08);
+}
+
+/* Quando um grupo está expandido E ativo */
+.level-0 .menu-item-header.expanded.active {
+  background: rgba(230, 255, 230, 0.9) !important;
+  border-left-color: #4CAF50 !important;
+  color: #4CAF50 !important;
+}
+
+/* Quando um grupo está expandido E selecionado */
+.level-0 .menu-item-header.expanded.selected {
+  background: rgba(230, 240, 255, 0.95) !important;
+  border-left-color: #3498db !important;
+  color: #3498db !important;
+}
+
+/* Quando um item está tanto ativo quanto selecionado */
+.menu-item-header.active.selected {
+  background: rgba(76, 175, 80, 0.25);
+  border-left-color: #4CAF50;
+  color: #4CAF50;
+}
+
+/* ========== SUB-ITENS SEM NEGRITO ========== */
+.level-1 .menu-item-header {
+  padding: 5px 20px 5px 30px !important; /* Reduzido de 40px para 30px (-10px) */
+  font-size: 0.75rem !important;
+  font-weight: normal !important; /* SUB-ITENS: fonte normal */
+}
+
+.level-1 .menu-item-header.active {
+  color: #4CAF50 !important;
+  background: rgba(76, 175, 80, 0.15) !important;
+  font-weight: normal !important; /* SUB-ITENS: fonte normal mesmo quando ativo */
+}
+
+.level-2 .menu-item-header {
+  padding: 3px 20px 3px 50px !important; /* Reduzido de 60px para 50px (-10px) */
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: normal !important; /* SUB-ITENS: fonte normal */
+}
+
+/* Ajustar submenus */
+.sidebar.open .level-1 .menu-item-header {
+  padding: 5px 10px 5px 20px !important;
+  font-size: 0.7rem !important;
+}
+
+.sidebar.open:hover .level-1 .menu-item-header,
+.sidebar.open.hovered .level-1 .menu-item-header {
+  padding: 5px 20px 5px 30px !important;
+  font-size: 0.75rem !important;
+}
+
+.sidebar.open .level-2 .menu-item-header {
+  padding: 3px 10px 3px 30px !important;
+  font-size: 0.65rem !important;
+}
+
+.sidebar.open:hover .level-2 .menu-item-header,
+.sidebar.open.hovered .level-2 .menu-item-header {
+  padding: 3px 20px 3px 50px !important;
+  font-size: 0.7rem !important;
+}
+
+.level-2 .menu-item-header.active {
+  color: #4CAF50 !important;
+  background: rgba(76, 175, 80, 0.15) !important;
+  font-weight: normal !important; /* SUB-ITENS: fonte normal mesmo quando ativo */
+}
+
+/* ========== ÍCONES CENTRALIZADOS NO MENU RECOLHIDO ========== */
+.sidebar.closed .menu-item-header {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 12px 0 !important;
+  width: 70px !important;
+  margin: 0 !important;
+}
+
+.sidebar.closed .menu-icon {
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 1.2rem !important;
+  text-align: center !important;
+}
+
+/* Esconder título e seta no menu fechado */
+.sidebar.closed .menu-title,
+.sidebar.closed .menu-arrow {
+  display: none !important;
+}
+
+/* Quando hover - mostrar tudo novamente */
+.sidebar.closed.hovered .menu-item-header {
+  justify-content: flex-start !important;
+  padding: 7px 20px !important;
+  width: auto !important;
+}
+
+.sidebar.closed.hovered .menu-icon {
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.sidebar.closed.hovered .menu-title,
+.sidebar.closed.hovered .menu-arrow {
+  display: block !important;
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.menu-title {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: normal; /* CORRIGIDO: removido negrito */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0; /* Permite que o texto seja cortado corretamente */
+}
+
+/* Ajustar títulos para caber na largura reduzida */
+.sidebar.open .menu-title {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mostrar títulos completos no hover */
+.sidebar.open:hover .menu-title,
+.sidebar.open.hovered .menu-title {
+  font-size: 0.9rem;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+.menu-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+}
+
+.menu-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* CORREÇÃO DEFINITIVA: Submenus aninhados funcionais */
+.submenu {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(76, 175, 80, 0.3);
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  width: 100%;
+}
+
+/* Submenu expandido no estado aberto */
+.sidebar.open .submenu {
+  max-height: 2000px;
+  padding: 5px 0;
+  overflow-y: auto;
+}
+
+/* Submenus aninhados (level-2) */
+.submenu .submenu {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid rgba(76, 175, 80, 0.2);
+  margin-left: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+/* Submenus aninhados expandidos */
+.sidebar.open .submenu .submenu {
+  max-height: 1500px;
+  padding: 3px 0;
+  overflow-y: auto;
+}
+
+/* Esconder submenus no estado fechado */
+.sidebar.closed .submenu {
+  display: none !important;
+}
+
+/* Submenus no hover do estado fechado */
+.sidebar.closed.hovered .submenu {
+  display: block !important;
+  position: absolute;
+  left: 15px;
+  background: rgba(44, 62, 80, 0.95);
+  min-width: 200px;
+  max-width: 280px; /* Aumentado para acomodar mais texto */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-height: 1200px;
+  overflow-y: auto;
+  padding: 10px 0;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Submenus aninhados no hover - NOVO */
+.sidebar.closed.hovered .submenu .submenu {
+  position: static;
+  background: rgba(0, 0, 0, 0.3);
+  margin-left: 15px;
+  box-shadow: none;
+  border-radius: 0;
+  max-width: none;
+  max-height: 800px;
+}
+
+/* Itens do submenu - level 1 */
+.submenu .menu-item.level-1 {
+  width: 100%;
+  margin: 0;
+}
+
+.submenu .menu-item.level-1 .menu-item-header {
+  padding: 8px 20px !important;
+  margin: 0 !important;
+  font-size: 0.8rem !important;
+  font-weight: normal !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submenu .menu-item.level-1 .menu-item-header:hover {
+  background: rgba(76, 175, 80, 0.2) !important;
+  color: #fff !important;
+}
+
+/* Itens do submenu - level 2 */
+.submenu .menu-item.level-2 {
+  width: 100%;
+  margin: 0;
+}
+
+.submenu .menu-item.level-2 .menu-item-header {
+  padding: 6px 20px 6px 35px !important;
+  margin: 0 !important;
+  font-size: 0.75rem !important;
+  font-weight: normal !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submenu .menu-item.level-2 .menu-item-header:hover {
+  background: rgba(76, 175, 80, 0.15) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Garantir que títulos sejam visíveis nos submenus */
+.submenu .menu-title {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mostrar setas para itens com submenus */
+.submenu .menu-arrow {
+  display: none !important;
+}
+
+.submenu .menu-item.level-1 .menu-arrow {
+  display: inline-block !important;
+  font-size: 0.7rem;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.submenu .menu-item.level-1 .menu-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* Scrollbar personalizada para submenus */
+.submenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.submenu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.submenu::-webkit-scrollbar-thumb {
+  background: rgba(76, 175, 80, 0.5);
+  border-radius: 3px;
+}
+
+.submenu::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 175, 80, 0.7);
+}
+.sidebar-footer {
+  padding: 15px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.logout-sidebar-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 15px;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: 8px;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  justify-content: flex-start;
+}
+
+.logout-sidebar-btn:hover {
+  background: rgba(231, 76, 60, 0.2);
+  border-color: rgba(231, 76, 60, 0.5);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.logout-sidebar-btn .menu-icon {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.logout-sidebar-btn .menu-title {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Ajustes para sidebar compacto */
+.sidebar.open .logout-sidebar-btn {
+  padding: 8px 10px;
+  font-size: 0.8rem;
+}
+
+.sidebar.open .logout-sidebar-btn .menu-icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+/* Ajustes para hover no sidebar compacto */
+.sidebar.open:hover .logout-sidebar-btn,
+.sidebar.open.hovered .logout-sidebar-btn {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+
+.sidebar.open:hover .logout-sidebar-btn .menu-icon,
+.sidebar.open.hovered .logout-sidebar-btn .menu-icon {
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+.sidebar.closed .sidebar-footer {
+  padding: 20px 10px;
+  transition: all 0.3s ease;
+}
+
+/* Restaurar padding normal quando hover no sidebar fechado */
+.sidebar.closed.hovered .sidebar-footer {
+  padding: 20px;
+}
+
+.sidebar.closed .logout-sidebar-btn {
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Restaurar alinhamento quando hover no sidebar fechado */
+.sidebar.closed.hovered .logout-sidebar-btn {
+  justify-content: flex-start;
+}
+
+/* Scrollbar customizada */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar.open {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: calc(100vh - 80px);
+    z-index: 1000;
+    width: 280px;
+    min-width: 280px;
+  }
+  
+  .sidebar.closed {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+}
+
+/* Animações */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar.open {
+    animation: slideIn 0.3s ease-out;
+  }
+}
+
+/* Garantir fonte normal para TODOS os sub-itens */
+.level-1 .menu-item-header,
+.level-1 .menu-item-header.active,
+.level-2 .menu-item-header,
+.level-2 .menu-item-header.active {
+  font-weight: normal !important;
+}
+
+/* Sobrescrever qualquer estilo de negrito */
+.submenu .menu-item-header {
+  font-weight: normal !important;
+}
+
+/* Diferenciação visual entre itens principais e sub-itens */
+
+/* Sub-itens (level-1 e level-2) - fonte menor e background mais claro */
+.level-1 .menu-item-header,
+.level-2 .menu-item-header {
+  font-weight: 400 !important;
+  font-size: 13px !important; /* Fonte menor que os itens principais */
+  background-color: rgba(255, 255, 255, 0.05) !important; /* Background mais claro */
+  padding-left: 35px !important; /* Indentação maior */
+  border-left: 2px solid rgba(255, 255, 255, 0.1) !important; /* Linha sutil na lateral */
+}
+
+/* Sub-itens quando ativos */
+.level-1 .menu-item-header.active,
+.level-2 .menu-item-header.active {
+  background-color: rgba(255, 255, 255, 0.15) !important; /* Background mais destacado quando ativo */
+  border-left-color: #4CAF50 !important; /* Linha verde quando ativo */
+  font-weight: 400 !important; /* Manter fonte normal mesmo quando ativo */
+}
+
+/* Hover nos sub-itens */
+.level-1 .menu-item-header:hover,
+.level-2 .menu-item-header:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Itens principais (level-0) - manter como estão */
+.menu-item.level-0 > .menu-item-header {
+  font-size: 14px;
+  font-weight: normal; /* CORRIGIDO: removido negrito */
+}
+
+/* Sub-itens de segundo nível (dentro de sub-menus) */
+.level-2 .menu-item-header {
+  padding-left: 50px !important; /* Indentação ainda maior */
+  font-size: 12px !important; /* Fonte ainda menor */
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ========== DIFERENCIAÇÃO VISUAL CORRIGIDA - SUBSTITUIR O ÚLTIMO BLOCO ========== */
+
+/* FORÇAR estilos para sub-itens com máxima especificidade */
+.sidebar .submenu .menu-item .menu-item-header {
+  font-size: 12px !important;
+  font-weight: normal !important; /* CORRIGIDO: fonte normal para sub-itens */
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  padding-left: 40px !important;
+  border-left: 3px solid rgba(76, 175, 80, 0.3) !important;
+  margin-left: 10px !important;
+  border-radius: 0 8px 8px 0 !important;
+  display: flex !important;
+}
+
+/* Sub-itens quando ativos - FORÇAR */
+.sidebar .submenu .menu-item .menu-item-header.active {
+  background-color: rgba(76, 175, 80, 0.2) !important;
+  border-left-color: #4CAF50 !important;
+  font-weight: normal !important; /* CORRIGIDO: fonte normal mesmo quando ativo */
+  color: #a8e6a3 !important;
+}
+
+/* Hover nos sub-itens - FORÇAR */
+.sidebar .submenu .menu-item .menu-item-header:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  transform: translateX(2px) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Garantir que itens principais mantenham o estilo normal */
+.sidebar > .sidebar-content > .sidebar-nav > .menu-item > .menu-item-header {
+  font-size: 14px !important;
+  font-weight: normal !important; /* CORRIGIDO: removido negrito */
+  background-color: transparent !important;
+  border-left: none !important;
+  margin-left: 0 !important;
+}
+
+/* APENAS esconder sub-itens quando o sidebar está fechado E não está com hover */
+.sidebar.closed:not(.hovered) .submenu {
+  display: none !important;
+}
+
+/* Mostrar sub-itens quando sidebar fechado tem hover */
+.sidebar.closed.hovered .submenu {
+  display: block !important;
+}

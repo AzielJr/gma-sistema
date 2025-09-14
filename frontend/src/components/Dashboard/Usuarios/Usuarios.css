@@ -1,0 +1,685 @@
+.usuarios-container {
+  padding: 20px;
+  height: 100%;
+  background-color: #f5f5f5;
+  width: 100%;
+  max-width: none;
+}
+
+.usuarios-header {
+  margin-bottom: 20px;
+}
+
+.usuarios-header h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Novo layout para o cabeçalho */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 300px;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1976d2;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Layout da tabela - usando 100% da largura */
+.usuarios-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.usuarios-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.usuarios-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.usuarios-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.usuarios-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.usuarios-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Espaçamento melhorado para avatar */
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-email {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badges de nível de acesso */
+.nivel-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nivel-badge.administrador {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.nivel-badge.supervisor {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.nivel-badge.operador {
+  background-color: #e8f5e8;
+  color: #388e3c;
+}
+
+.nivel-badge.consulta {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+/* Botões de ação */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  min-width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #1976d2;
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  transform: translateY(-1px);
+}
+
+.photo-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.photo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.photo-input {
+  display: none;
+}
+
+.photo-label {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2196f3;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.photo-label:hover {
+  background-color: #1976d2;
+}
+
+/* Seção de upload de foto melhorada */
+.photo-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.photo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.photo-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #e0e0e0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.photo-preview:hover {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.photo-placeholder span {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.photo-placeholder p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+}
+
+.photo-upload input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+.photo-upload-btn {
+  padding: 8px 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.photo-upload-btn:hover {
+  background-color: #1976d2;
+}
+
+.photo-remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.photo-preview:hover .photo-remove-btn {
+  opacity: 1;
+}
+
+.photo-remove-btn:hover {
+  background-color: #d32f2f;
+  transform: scale(1.1);
+}
+
+.user-form {
+  max-width: 800px;
+}
+
+/* Estilos específicos para a primeira linha do formulário */
+.form-row.first-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+}
+
+.form-group.nome-completo {
+  flex: 0 0 75% !important;
+  min-width: 0;
+}
+
+.form-group.celular {
+  flex: 0 0 23% !important;
+  min-width: 0;
+}
+
+/* Estilo para o campo Nome Completo em negrito */
+.form-group.nome-completo input {
+  font-weight: bold !important;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.form-control:disabled {
+  background-color: #f5f5f5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.form-section {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.form-section h4 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Proporções específicas para campos de endereço */
+.cep-field {
+  flex: 0 0 18% !important; /* Aumentado de 15% para 18% */
+  margin-right: 10px;
+  position: relative;
+  min-width: 140px; /* Aumentado para 140px para garantir mais espaço */
+}
+
+.input-with-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-search .form-control {
+  padding-right: 40px;
+}
+
+.search-icon-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 16px;
+  color: #007bff;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon-btn:hover {
+  color: #0056b3;
+  background-color: #f8f9fa;
+}
+
+.search-icon-btn:disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.endereco-field {
+  flex: 0 0 calc(70% - 20px) !important;
+  min-width: 200px;
+}
+
+.numero-field {
+  flex: 0 0 15% !important;
+  min-width: 80px;
+}
+
+/* Mensagem quando não há dados */
+.no-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Container para input com ícone do WhatsApp */
+.input-with-whatsapp {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-whatsapp input {
+  width: 100%;
+  padding-right: 35px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.input-with-whatsapp input:focus {
+  outline: none;
+  border-color: #2196f3;
+}
+
+.input-with-whatsapp input.invalid {
+  border-color: #f44336 !important;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2) !important;
+}
+
+.input-with-whatsapp input.invalid:focus {
+  border-color: #f44336 !important;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.3) !important;
+}
+
+.whatsapp-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+  background-color: rgba(37, 211, 102, 0.1);
+}
+
+.whatsapp-icon.loading {
+  cursor: wait;
+}
+
+.whatsapp-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.loading-spinner {
+  font-size: 16px;
+  color: #25D366;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.whatsapp-icon-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #25d366;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.whatsapp-icon-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.whatsapp-icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .usuarios-content {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .usuarios-sidebar {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .form-row {
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .usuarios-container {
+    padding: 10px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-group {
+    min-width: auto;
+  }
+  
+  .cep-field,
+  .endereco-field,
+  .numero-field {
+    flex: 1 1 100% !important;
+  }
+}
+
+.form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: none;
+}

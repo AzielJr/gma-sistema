@@ -1,0 +1,311 @@
+
+Menu Principal:
+
+- Cadastros
+	Tabelas de Referência
+		Nucleos
+		Bairros
+		Cidades
+		Nacionalidades
+		Profissões
+		Situação Cadastral
+		Situação Funcional
+		Setores Funcional
+		Departamentos
+		Grau de Instrução
+		Tipo de Enquadramento
+		Classificação de Enquadramento
+		Orgãos de Referência 
+		Unidade de Medida 
+		Orgão de Especialidades 
+		Diretrizes 
+		Projetos 
+		Documentação Básica
+		Documentção Técnica 
+		Tipo de Logradouros
+		Atividades CNAE
+		Instituições de Formação
+		Tipos de Documentos
+		Tipo de Logradouros
+		Status de Processo
+		Prazos de Validação
+		Tipos de Licença
+		Pareamento das Leis
+		Grau Poluidor
+		Área do Empreendimento
+		Investimento em UFM
+		Texto Padrão
+		Quadro Funcional
+		Faixa de Licenciamento Municipal
+
+	Indexadores
+	Contribuintes
+	Roteiro Orientativo
+	Tecnicos Ambientais
+	Atividade Secundária
+
+- Tramite
+	Abertura de Processo
+	Protocolo Padrão
+	Protocolo Livre
+	Enquadramento
+	DAM
+
+- Consultas
+	Roteiro Orientativo
+	Processos
+
+- Impressões
+	Processo
+	Licença
+
+- Utilidades
+	Preferencias
+	Usuários
+	Niveis de acesso
+
+- Logout
+
+//----------------------------------------------------------//
+
+
+Opções e Campos dentro do menu Cadastros / Tabelas de Referencia.
+
+- Nucleos
+	Campos: id(int), nucleo(text, ativo(boolean)
+
+- Bairros
+	Campos: id(int), bairro(text), ativo(boolean)
+
+- Cidades
+	Campos: id(int), cidade(text), ativo(boolean)
+
+- Nacionalidades 
+	Campos: id(int), nacionalidade(text), ativo(boolean)
+
+- Profissões 
+	Campos: id(int), profissao(text), ativo(boolean)
+
+- Situação Cadastral 
+	Campos: id(int), situacao_cadastral(text), ativo(boolean)
+
+- Situação Funcional
+	Campos: id(int), situacao_funcional(text), ativo(boolean)
+
+- Setores Funcional
+	Campos: id(int), setor(text), ativo(boolean)
+
+- Departamentos
+	Campos: id(int), departamentos(text), ativo(boolean)
+
+- Grau de Instrução
+	Campos: id(int), grau_instrucao(text), ativo(boolean)
+
+- Tipo de Enquadramento 
+	Campos: id(int), tipo_enquadramento(text), ativo(boolean)
+
+- Classificação de Enquadramento
+	Campos: id(int), classificacao_enquadramento(text), ativo(boolean)
+
+- Orgãos de Referência 
+	Campos: id(int), orgao_referencia(text), ativo(boolean)
+
+- Unidade de Medida 
+	Campos: id(int), unidade_medida(text), sigla(text), ativo(boolean)
+
+- Orgão de Especialidades
+	Campos: id(int), especialidade(text), ativo(boolean)
+
+- Diretrizes
+	Campos: id(int), prazo(int), cotexto(text), ativo(boolean)
+
+- Projetos
+	Campos: id(int), prazo(int), contexto(text), ativo(boolean)
+
+- Documentação Básica
+	Campos: id(int), prazo(int), documentacao_basica(text), ativo(boolean)
+
+- Documentção Técnica 
+	Campos: id(int), prazo(int), documentacao_tecnica(text), ativo(boolean)
+
+- Tipo de Logradouros 
+	Campos: id(int), tipo_logradouro(text), ativo(boolean)
+
+- Atividades CNAE
+	Campos: id(int), secao(text), divisao(text), grupo(text), classe(text), subclasse(text), dig(text), ret(text), nomeclatura(text), ativo(boolean)
+
+- Instituições de Formação
+	Campos: id(int), instituicao(text), ativo(boolean)
+
+- Tipos de Documentos 
+	Campos: id(int), tipo_documento(text), ativo(boolean)
+
+- Tipo de Logradouros 
+	Campos: id(int), tipo_logradouro(text), tramita(text), avulso(text), ativo(boolean)
+
+- Status de Processo 
+	Campos: id(int), status_processo(text), ativo(boolean)
+
+- Prazos de Validação
+	Campos: id(int), descrição(text), validade(int), ativo(boolean)
+
+- Tipos de Licença 
+	Campos: id(int), validade(int), aplica(text), ref(int), aplicavel(boolean), texto_padrao(boolean), ativo(boolean)
+
+- Pareamento das Leis 
+	Campos: id(int), classificacao(int), orgao(int), grau(text), atividade(text), código(int), secao(int), divisao(int), grupo(int), classe(int), subclasse(int), digito(int), referencia(int), ativo(boolean)
+	- Aba Análise Geral
+		Campos:area(text), unidade_medida(text), investimento(text), grau_poluidor_porte(text), quadro_funcional(text), tipo_enquadra(text), enquadramento(text), potencial_forte_poluidor(text), faixa_licenciamento_micro(text), 
+		faixa_licenciamento_pequeno(text), faixa_licenciamento_medio(text), faixa_licenciamento_grande(text), faixa_licenciamento_especial(text), ativo(boolean)
+
+- Grau Poluidor 
+	Campos: id(int), grau_poluidor(text), porte(text), grau(text), valor_conversao(int), ativo(boolean)
+
+- Área do Empreendimento
+	Campos: id(int), nomeclatura(text), sigla(text), faixa(text), de(int), ate(int), ativo(boolean)
+
+- Investimento em UFM
+	Campos: id(int), nomeclatura(text), sigla(text), faixa(text), de(int), ate(int), ativo(boolean)
+
+- Texto Padrão
+	Campos: id(int), departamento(text), titulo_documento(text), ativo(boolean)
+
+- Quadro Funcional
+	Campos: id(int), nomeclatura(text), sigla(text), faixa(text), de(int), ate(int), ativo(boolean)
+
+- Faixa de Licenciamento Municipal
+	Campos: id(int), nomeclatura(text), sigla(text), faixa(text), de(int), ate(int), ativo(boolean)
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+- Indexadores
+	Campos: id(int), data_inicio(int), ufm(int), juros(double), multa(double), taxa_bancaria(double), taxa_protocolo(double), validade(int), vencimento(int), sit(text), ativo(boolean)
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+- Contribuinte 
+	- Aba Dados Cadastrais 
+		Campos: tipo_contribuinte(int), cnpj(text), inscricao_municipal(text), inscricao_estadual(text), dnpm(text), situacao_cadastral(select)"ativo, inativo, suspenso", roteiro(text), razao_social(text), nome_fantasia(text), 
+		*Localização
+			Campos: endereço(text), nucleo(text), tipo_logradouro(text), numero(text), quadra(text), cidade(text), logradouro(text), bairro(text), complemento(text), email_principal(text), email_alternativo(text), telefone(text), cep(text)
+
+	- Aba Dados do(s) Sócio(s) 
+		Campos: nome(text), cpf(text), rg(text), orgao_expedidor(text), fone(text), sexo(select)"masculino,feminino", nome(text), cpf(text), rg(text), orgao_expedidor(text), fone(text), sexo(select)"masculino,feminino"
+
+	- Aba Atividade Principal 
+		Campos: id(int), secao(text), divisao(text), grupo(text), classe(text), subclasse(text), digito(text), referencia(text), modalidade(select)"basico,padrao,simplificado", nomeclatura_atividade(text)
+	
+	- Aba Dados do Empreendimento
+		*Investimento/Área 
+			Campos: capital(text), area_total(text), construida(text), utilizada(text)
+		*Quadro Funcional
+			Campos: direto(text), terceirizados(text)
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+- Roteiro Orientativo 
+	- Aba Identificação do Roteiro 
+		Campos: modalidade, orgao_referencia, classificacao
+		*Subclasse
+			Campos: id(int), secao(text), divisao(text), grupo(text), classe(text), subclasse(text), digito(text), referencia(text), nomeclatura_atividade(text)
+		*Roteiros
+			Campos: roteiro(text), codigo_ref(text), orgao(text), tipo_modalidade(text), subclasse(text), digito(text), nomeclatura_atividade(text), ativo(boolean)
+
+	- Aba Documentação Básica 
+		*Documentação Básica
+			Campos: id(int), prazo(text), documentacao_basica(text), ativo(boolean)
+		*Roteiros 
+			Campos: id(int), reg(text), roteiro(text), tp(text), prazo(text), documentacao(text) 
+
+	- Aba Docuentação Técnica 
+		*Documentação Técnica 
+			Campos: id(int), prazo(text), documentacao_tecnica(text), ativo(boolean) 
+		*Roteiros 
+			Campos: id(int), reg(text), roteiro(text), tp(text), prazo(text), documentacao(text) 
+
+	- Aba Projetos 
+		*Projeitos 
+			Campos: id(int), prazo(text), projeto(text), ativo(boolean) 
+		*Roteiros 
+			Campos: id(int), reg(text), roteiro(text), tp(text), prazo(text), documentacao(text) 
+	
+	- Aba Diretrizes 
+		*Diretriz
+			Campos: id(int), prazo(text), diretriz(text), ativo(boolean)
+		*Roteiros 
+			Campos: id(int), reg(text), roteiro(text), tp(text), prazo(text), documentacao(text)
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+	
+
+- Tecnicos Ambientais 
+	- Aba Dados Pessoais 
+		Campos: operacao(text), cpf(text), data_cadastro(text), data_nascimento(text), valido_ate(text), foto(blob), codigo(text), nome(text), apelido(text), estado_civil(select), nacionalidade(select), naturalidade(select), sexo(select), rg(text), orgao_emissor(text), data_emissao(text), uf(select)
+
+	- Aba Endereço 
+		*Endereço
+			Campos: nucleo(select), tipo_logradouro(select), numero(text), quadra(text), cidade(select), logradouro(text), bairro(select), complemento(text), uf(select), cep(text),  telefone(text), email_principal(text), email_alternativo(text)
+
+'	- Aba Filiação 
+		*Dados da Mãe 
+			Campos: nome(text), telefone(text), email(text)
+		*Dados do Pai 
+			Campos: nome(text), telefone(text), email(text)
+
+	- Aba Atividade Profissional/Formação
+		*Profissão/Instituição
+			Campos: profissao(select), registro(text), validade(text), instituicao_formacao(select), data_formatura(text), cidade_formacao(select), uf(select)
+
+
+//-------------------------------------------------------------------------------------------------------------------//
+
+
+- Atividade Secundária 
+		*Dados do Contribuinte 
+			Campos: cnpj_cpf(text), razao_social(text), nome_fantasia(text) 
+		*Atividade Principal 
+			Campos: 
+		*Classificação da Atividade
+			Campos: codigo(text), secao(text), divisao(text), grupo(text), classe(text), sub_classe(text), digito(text), referencia(text), modalidade(select)"basico, padrao, simplificado", orgao_referencia(int)
+		*Atividades Secundárias Associadas 
+			Campos: sub_classe(text), nomeclatura_atividade(text), codigo(text), secao(text), divisao(text), grupo(text), classe(text), digito(text), referencia(text)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
