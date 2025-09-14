@@ -138,6 +138,9 @@ const Usuarios: React.FC = () => {
 
   // Estado para validação do celular
   const [isCelularValid, setIsCelularValid] = useState(true);
+// Adicione um comentário como teste
+// Teste de deploy - [data atual]
+  const [isCelularValid, setIsCelularValid] = useState(true);
 
   // Função para capturar foto do WhatsApp
   const handleWhatsAppPhoto = async () => {
